@@ -27,8 +27,8 @@ ai @edit /NewEnvironment -name PATH -value "[cli_Dir]" -install_operation Create
 
 ai @edit /SetCurrentFeature Editor32
 ai @edit /AddFolder "APPDIR\editor" $editor32 -install_in_parent_folder
-ai @edit /AddFileAssociation "[|ProductName]" -ext pros -cmd "APPDIR\editor\pros-editor.exe" -verbarg """%1\\.."""
+ai @edit /AddFileAssociation "[|ProductName]" -ext pros -cmd "APPDIR\editor\PROS Editor\pros-editor.exe" -verbarg """%1\\.."""
 
 ai @edit /SetCurrentFeature Editor64
 ai @edit /AddFolder "AppDir\editor" $editor64 -install_in_parent_folder
-ai @edit /AddFileAssociation "[|ProductName]" -ext pros -cmd "APPDIR\editor\pros-editor.exe" -verbarg """%1\\.."""
+ai @edit /AddFileAssociation "[|ProductName]" -ext pros -cmd "APPDIR\editor\PROS Editor x64\pros-editor.exe" -verbarg """%1\\.."""
