@@ -10,10 +10,10 @@ stage('Build') {
                 }
 
                 stage('Extract files') {
-                    powershell '7z e .\\pros-editor-64-windows.zip -o.\\pros-editor-64-windows'
-                    powershell '7z e .\\pros-editor-windows.zip -o.\\pros-editor-32-windows'
-                    powershell '7z e .\\pros_cli-*-win-64bit.zip -o.\\pros-cli-64-windows'
-                    powershell '7z e .\\pros_cli-*-win-32bit.zip -o.\\pros-cli-32-windows'
+                    powershell '7z e .\\pros-editor-64-windows.zip -o".\\pros-editor-64-windows"'
+                    powershell '7z e .\\pros-editor-windows.zip -o".\\pros-editor-32-windows"'
+                    powershell '7z e .\\pros_cli-*-win-64bit.zip -o".\\pros-cli-64-windows"'
+                    powershell '7z e .\\pros_cli-*-win-32bit.zip -o".\\pros-cli-32-windows"'
                     // powershell 'Expand-Archive -Path .\\pros-editor-64-windows.zip -DestinationPath .\\pros-editor-64-windows'
                     // powershell 'Expand-Archive -Path .\\pros-editor-windows.zip -DestinationPath .\\pros-editor-32-windows'
                     // powershell 'Expand-Archive -Path .\\pros_cli-*-win-32bit.zip -DestinationPath .\\pros-cli-32-windows'
