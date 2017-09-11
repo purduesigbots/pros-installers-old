@@ -15,15 +15,14 @@ function ai {
 $win_ver = (Get-Content .\win_version -Raw).Trim()
 Write-Output "Setting version to $win_ver"
 ai @edit /SetVersion $win_ver
-ai @edit /SetProductCode -langid 1033
 
 ai @edit /SetCurrentFeature CLI32
 ai @edit /AddFolder "APPDIR\cli" $cli32 -install_in_parent_folder
-ai @edit /NewEnvironment -name PATH -value "[cli_Dir]" -install_operation CreateUpdate -system_variable
+ai @edit /NewEnvironment -name Path -value "[cli_Dir]" -install_operation CreateUpdate -system_variable -behavior Append
 
 ai @edit /SetCurrentFeature CLI64
 ai @edit /AddFolder "APPDIR\cli" $cli64 -install_in_parent_folder
-ai @edit /NewEnvironment -name PATH -value "[cli_Dir]" -install_operation CreateUpdate -system_variable
+ai @edit /NewEnvironment -name Path -value "[cli_Dir]" -install_operation CreateUpdate -system_variable -behavior Append
 
 ai @edit /SetCurrentFeature Editor32
 ai @edit /AddFolder "APPDIR\editor" $editor32 -install_in_parent_folder

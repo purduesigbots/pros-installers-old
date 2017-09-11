@@ -1,3 +1,4 @@
 *.exe filter=lfs diff=lfs merge=lfs -text
 llvm/**/* filter=lfs diff=lfs merge=lfs -text
 toolchain/**/* filter=lfs diff=lfs merge=lfs -text
+Prerequisites/**/* filter=lfs diff=lfs merge=lfs -text
