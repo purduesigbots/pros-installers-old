@@ -17,4 +17,4 @@ New-Item -Path .\output\windows-exe -ItemType Directory -Force
 ai @edit /SetOutputLocation -buildname WebInstaller -path (Resolve-Path -Path .\output\windows-web).Path
 ai @edit /SetOutputLocation -buildname ExeBuild -path (Resolve-Path -Path .\output\windows-exe).Path
 
-ai /build $project
+ai /rebuild $project

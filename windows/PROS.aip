@@ -22,7 +22,7 @@
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="PROS"/>
     <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
-    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;PROS_OLDER_UPGRADE;PROS_ATOM_UPGRADE;PROS_UPGRADE;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;PROS_OLDER_UPGRADE;PROS_ATOM_UPGRADE;PROS_UPGRADE;AI_SETUPEXEPATH;SETUPEXEDIR;UPGRADE_1"/>
     <ROW Property="UpgradeCode" Value="{84600962-B57A-4566-BADD-88AD99B1BC8F}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME#ExeBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME#ExeBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -253,16 +253,19 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AI_CustomARPName" ComponentId="{295D3E76-C7EE-40EA-B506-0FD553DD1A3C}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
-    <ROW Component="AI_ExePath" ComponentId="{BC14F9FD-F4E9-48DE-BBD9-61874921FADB}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
-    <ROW Component="B5158184F44A6981C5919229A6AEBE" ComponentId="{E762C437-DB72-4007-90CD-9D16E3447563}" Directory_="APPDIR" Attributes="260" KeyPath="B5158184F44A6981C5919229A6AEBE" Options="2"/>
+    <ROW Component="AI_ExePath" ComponentId="{0E3478B1-FD2A-4E22-A598-04939F9E7B71}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
     <ROW Component="BuildSystem.h" ComponentId="{7BC667F6-5B80-40BC-A1A0-D2F4E4C5457F}" Directory_="clangc_Dir" Attributes="0" KeyPath="BuildSystem.h" Type="0"/>
-    <ROW Component="D7E473DF14F3E98497864847195F2" ComponentId="{DF900A13-D932-4856-82F2-962CAC81F934}" Directory_="APPDIR" Attributes="260" KeyPath="D7E473DF14F3E98497864847195F2" Options="2"/>
-    <ROW Component="InstallShield" ComponentId="{3F884013-DFE5-4934-83D3-F65E8A4C8B4A}" Directory_="APPDIR" Attributes="260" KeyPath="InstallShield" Options="2"/>
+    <ROW Component="CLIOnMachinePath" ComponentId="{44E77A4C-EDCF-4B76-B7E3-B5CF06A8BCBB}" Directory_="APPDIR" Attributes="4" Condition="MsiRunningElevated" KeyPath="PrivilegedInstaller"/>
+    <ROW Component="CLIOnUserPath" ComponentId="{BDE096DD-75A8-42D5-BBCC-991B864075E4}" Directory_="APPDIR" Attributes="4" Condition="NOT MsiRunningElevated" KeyPath="UserInstall"/>
+    <ROW Component="LLVMOnMachinePath" ComponentId="{9DAAA271-AAA9-44CD-8D5F-6E4BDDA934E5}" Directory_="APPDIR" Attributes="4" Condition="MsiRunningElevated" KeyPath="LLVMOnMachinePath"/>
+    <ROW Component="LLVMOnUserPath" ComponentId="{7E80AD84-454D-47B1-84D8-B1329139E726}" Directory_="APPDIR" Attributes="4" Condition="Not MsiRunningElevated" KeyPath="LLVMOnUserPath"/>
+    <ROW Component="OldProgrammingCableDriver" ComponentId="{3F884013-DFE5-4934-83D3-F65E8A4C8B4A}" Directory_="APPDIR" Attributes="4" KeyPath="InstallShield" Options="2"/>
     <ROW Component="PROS" ComponentId="{BB71C11B-086F-4C81-A680-B37E71769CB5}" Directory_="PROS_LocalAppDir" Attributes="0"/>
     <ROW Component="ProductInformation" ComponentId="{810A8924-03A3-4E6C-827A-810046F7766B}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="TOOLCHAIN_ON_PATH" ComponentId="{A96A6A55-6974-4E84-A16A-8092C57CDAD8}" Directory_="APPDIR" Attributes="4" KeyPath="TOOLCHAIN_ON_PATH"/>
-    <ROW Component="VEXProgrammi" ComponentId="{C56B408E-7F7F-421C-82BE-3B03898E323E}" Directory_="APPDIR" Attributes="260" KeyPath="VEXProgrammi" Options="2"/>
-    <ROW Component="VEXProgrammi_1" ComponentId="{0B32E4F3-1ED6-4966-90BE-3E9EAD1FEE73}" Directory_="APPDIR" Attributes="260" KeyPath="VEXProgrammi_1" Options="2"/>
+    <ROW Component="ProgrammingCableDriver32" ComponentId="{C56B408E-7F7F-421C-82BE-3B03898E323E}" Directory_="APPDIR" Attributes="260" KeyPath="VEXProgrammi" Options="2"/>
+    <ROW Component="ProgrammingCableDriver64" ComponentId="{0B32E4F3-1ED6-4966-90BE-3E9EAD1FEE73}" Directory_="APPDIR" Attributes="260" KeyPath="VEXProgrammi_1" Options="2"/>
+    <ROW Component="ToolchainOnMachinePath" ComponentId="{A96A6A55-6974-4E84-A16A-8092C57CDAD8}" Directory_="APPDIR" Attributes="4" Condition="MsiRunningElevated" KeyPath="TOOLCHAIN_ON_PATH"/>
+    <ROW Component="ToolchainOnUserPath" ComponentId="{6B15AE68-FA68-41B5-B24E-C6B814BBCF46}" Directory_="APPDIR" Attributes="4" Condition="NOT MsiRunningElevated" KeyPath="TOOLCHAIN_ON_PATH1"/>
     <ROW Component="adxintrin.h" ComponentId="{7375F2C6-BFA9-4966-BD59-37A2CE0C6298}" Directory_="include_1_Dir" Attributes="0" KeyPath="adxintrin.h" Type="0"/>
     <ROW Component="agrep.exe" ComponentId="{BAAB4F28-14D6-4E45-91A1-54F7063C364F}" Directory_="bin_2_Dir" Attributes="0" KeyPath="agrep.exe"/>
     <ROW Component="algo.h" ComponentId="{B2AA0035-1A43-4E5C-AA1E-A75B937736AB}" Directory_="parallel_Dir" Attributes="0" KeyPath="algo.h" Type="0"/>
@@ -605,20 +608,18 @@
     <ROW Component="zip.exe" ComponentId="{13D9C0CA-CBE8-4A60-B544-99CCDB46D824}" Directory_="bin_2_Dir" Attributes="0" KeyPath="zip.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
-    <ROW Feature="B5158184F44A6981C5919229A6AEBE" Title="Visual C++ Redistributable for Visual Studio 2015 Update 3 x64" Description="Visual C++ Redistributable for Visual Studio 2015 Update 3 x64" Display="15" Level="1" Attributes="0" Components="B5158184F44A6981C5919229A6AEBE"/>
-    <ROW Feature="CLI32" Feature_Parent="PROSMain" Title="CLI-32" Description="Installs PROS CLI 32-bit" Display="0" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ROW Feature="CLI32" Feature_Parent="PROSMain" Title="CLI-32" Description="Installs PROS CLI 32-bit" Display="0" Level="1" Directory_="APPDIR" Attributes="2"/>
     <ROW Feature="CLI64" Feature_Parent="PROSMain" Title="CLI-64" Description="Installs PROS CLI 64-bit" Display="0" Level="1" Directory_="APPDIR" Attributes="0"/>
-    <ROW Feature="D7E473DF14F3E98497864847195F2" Title="Visual C++ Redistributable for Visual Studio 2015 Update 3 x86" Description="Visual C++ Redistributable for Visual Studio 2015 Update 3 x86" Display="17" Level="1" Attributes="0" Components="D7E473DF14F3E98497864847195F2"/>
     <ROW Feature="Editor32" Feature_Parent="PROSEditor" Title="editor-32" Description="Installs PROS Editor 32-bit" Display="0" Level="1" Directory_="APPDIR" Attributes="0"/>
     <ROW Feature="Editor64" Feature_Parent="PROSEditor" Title="editor-64" Description="Installs PROS Editor 64-bit" Display="0" Level="1" Directory_="APPDIR" Attributes="0"/>
-    <ROW Feature="InstallShield" Title="Old Programming Cable Driver" Description="Old Programming Cable Driver" Display="9" Level="1" Attributes="0" Components="InstallShield"/>
-    <ROW Feature="PROSEditor" Title="PROS Editor" Description="Installs the PROS Editor based on Atom" Display="3" Level="1" Directory_="APPDIR" Attributes="0"/>
-    <ROW Feature="PROSMain" Title="PROS" Description="Installs PROS Toolchain and PROS CLI" Display="0" Level="1" Directory_="APPDIR" Attributes="0" Components="PROS ProductInformation agrep.exe algo.h algorithm algorithm_1 algorithm_2 algorithmfwd.h alloca.h ansi.h ansi2knr.exe aprofilevalidation.specs aprofilevalidation.specs_1 aprofilevalidation.specs_10 aprofilevalidation.specs_11 aprofilevalidation.specs_12 aprofilevalidation.specs_13 aprofilevalidation.specs_14 aprofilevalidation.specs_15 aprofilevalidation.specs_16 aprofilevalidation.specs_17 aprofilevalidation.specs_18 aprofilevalidation.specs_19 aprofilevalidation.specs_2 aprofilevalidation.specs_20 aprofilevalidation.specs_3 aprofilevalidation.specs_4 aprofilevalidation.specs_5 aprofilevalidation.specs_6 aprofilevalidation.specs_7 aprofilevalidation.specs_8 aprofilevalidation.specs_9 ar.exe arm_acle.h armelf.x armnoneeabiaddr2line.exe armnoneeabiar.exe armnoneeabias.exe armnoneeabic.exe armnoneeabicfilt.exe armnoneeabicpp.exe armnoneeabielfedit.exe armnoneeabig.exe armnoneeabigcc.exe armnoneeabigcc6.2.1.exe armnoneeabigccar.exe armnoneeabigccnm.exe armnoneeabigccranlib.exe armnoneeabigcov.exe armnoneeabigcovtool.exe armnoneeabigdb.exe armnoneeabigdbpy.exe armnoneeabigprof.exe armnoneeabild.bfd.exe armnoneeabild.exe armnoneeabinm.exe armnoneeabiobjcopy.exe armnoneeabiobjdump.exe armnoneeabiranlib.exe armnoneeabireadelf.exe armnoneeabisize.exe armnoneeabistrings.exe armnoneeabistrip.exe array array_1 array_2 as.exe assoc_container.hpp atomic_word.h atomic_word.h_1 atomic_word.h_10 atomic_word.h_11 atomic_word.h_12 atomic_word.h_13 atomic_word.h_14 atomic_word.h_15 atomic_word.h_16 atomic_word.h_17 atomic_word.h_18 atomic_word.h_19 atomic_word.h_2 atomic_word.h_20 atomic_word.h_3 atomic_word.h_4 atomic_word.h_5 atomic_word.h_6 atomic_word.h_7 atomic_word.h_8 atomic_word.h_9 auto_ptr.h awk.exe basename.exe bc.exe bin_search_tree_.hpp binary_heap_.hpp binomial_heap_.hpp binomial_heap_base_.hpp bool_set branch_policy.hpp bunzip2.exe bzip2.exe bzip2recover.exe cat.exe cc1.exe cc1plus.exe cc_hash_max_collision_check_resize_trigg cc_ht_map_.hpp cdefs.h chgrp.exe chmod.exe cksum.exe cmp.exe collect2.exe comm.exe compress.exe cond_dealtor.hpp const_iterator.hpp constructor_destructor_fn_imps.hpp constructor_destructor_fn_imps.hpp_1 constructors_destructor_fn_imps.hpp constructors_destructor_fn_imps.hpp_1 constructors_destructor_fn_imps.hpp_2 constructors_destructor_fn_imps.hpp_3 constructors_destructor_fn_imps.hpp_4 constructors_destructor_fn_imps.hpp_5 constructors_destructor_fn_imps.hpp_6 constructors_destructor_fn_imps.hpp_7 cp.exe crtbegin.o crtbegin.o_1 crtbegin.o_10 crtbegin.o_11 crtbegin.o_12 crtbegin.o_13 crtbegin.o_14 crtbegin.o_15 crtbegin.o_16 crtbegin.o_17 crtbegin.o_18 crtbegin.o_19 crtbegin.o_2 crtbegin.o_20 crtbegin.o_3 crtbegin.o_4 crtbegin.o_5 crtbegin.o_6 crtbegin.o_7 crtbegin.o_8 crtbegin.o_9 csplit.exe cut.exe date.exe dc.exe dd.exe decimal df.exe diff.exe diff3.exe dircolors.exe direct_mask_range_hashing_imp.hpp dirname.exe du.exe echo.exe egrep.exe env.exe eq_by_less.hpp erase_if.h expand.exe expr.exe factor.exe false.exe fgrep.exe find.exe fixinc_list fixincl.exe fmt.exe fold.exe fsplit.exe gawk.exe gccvar.bat grep.exe gsar.exe gunzip.exe gzip.exe head.exe id.exe indent.exe install.exe join.exe jwhois.exe ld.bfd.exe ld.exe less.exe lesskey.exe liblto_plugin0.dll limits.h limits.h_1 ln.exe logname.exe ls.exe lto1.exe ltowrapper.exe lu_counter_metadata.hpp m4.exe make.exe makedepend.exe makemsg.exe man.exe md5sum.exe mkdir.exe mkfifo.exe mknod.exe msys1.0.dll msysiconv2.dll msysintl8.dll msysregex1.dll msystermcap0.dll mv.exe mvdir.exe newlib.h nl.exe nm.exe node_metadata_selector.hpp node_metadata_selector.hpp_1 objcopy.exe objdump.exe od.exe opt_random.h opt_random.h_1 opt_random.h_10 opt_random.h_11 opt_random.h_12 opt_random.h_13 opt_random.h_14 opt_random.h_15 opt_random.h_16 opt_random.h_17 opt_random.h_18 opt_random.h_19 opt_random.h_2 opt_random.h_20 opt_random.h_3 opt_random.h_4 opt_random.h_5 opt_random.h_6 opt_random.h_7 opt_random.h_8 opt_random.h_9 paste.exe patch.exe pathchk.exe pclip.exe pr.exe printenv.exe printf.exe profiler.h ps.exe pwd.exe ranlib.exe rdimonaem.o rdimonaem.o_1 rdimonaem.o_10 rdimonaem.o_11 rdimonaem.o_12 rdimonaem.o_13 rdimonaem.o_14 rdimonaem.o_15 rdimonaem.o_16 rdimonaem.o_17 rdimonaem.o_18 rdimonaem.o_19 rdimonaem.o_2 rdimonaem.o_20 rdimonaem.o_3 rdimonaem.o_4 rdimonaem.o_5 rdimonaem.o_6 rdimonaem.o_7 rdimonaem.o_8 rdimonaem.o_9 readelf.exe recode.exe rm.exe rman.exe rmdir.exe sdiff.exe sed.exe seq.exe shar.exe sleep.exe sort.exe split.exe stego.exe strip.exe su.exe sum.exe sync.exe tac.exe tail.exe tar.exe tee.exe test.exe touch.exe tr.exe true.exe type.exe uname.exe unexpand.exe uniq.exe unrar.exe unshar.exe unzip.exe updater.exe uudecode.exe uuencode.exe wc.exe wget.exe wget.hlp which.exe whoami.exe xargs.exe yes.exe zcat.exe zip.exe"/>
-    <ROW Feature="ToolchainOnPath" Title="Toolchain on PATH" Description="Adds the PROS Toolchain to PATH (optional)" Display="7" Level="4" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath TOOLCHAIN_ON_PATH"/>
-    <ROW Feature="VEXProgrammi" Title="Programming Cable Driver (32-bit)" Description="Programming Cable Driver (32-bit)" Display="11" Level="1" Attributes="0" Components="VEXProgrammi"/>
-    <ROW Feature="VEXProgrammi_1" Title="Programming Cable Driver (64-bit)" Description="Programming Cable Driver (64-bit)" Display="13" Level="1" Attributes="0" Components="VEXProgrammi_1"/>
-    <ROW Feature="llvm" Feature_Parent="PROSEditor" Title="llvm" Description="Installs Clang toolchain for the PROS Editor" Display="3" Level="1" Directory_="APPDIR" Attributes="0" Components="BuildSystem.h adxintrin.h allocator_interface.h asan_blacklist.txt canalyzer.bat clang.exe clang.exe_1 clang_rt.asan_dynamici386.dll clang_rt.asani386.lib clangcl.exe clangformat.exe clangrename.exe clangtidy.exe findallsymbols.exe gitclangformat libclang.dll libclang.lib libiomp5md.dll lto.h"/>
-    <ATTRIBUTE name="CurrentFeature" value="PROSMain"/>
+    <ROW Feature="InstallShield" Title="Old Programming Cable Driver" Description="Old Programming Cable Driver" Display="9" Level="4" Attributes="0" Components="OldProgrammingCableDriver"/>
+    <ROW Feature="PROSEditor" Title="PROS Editor" Description="Installs the PROS Editor based on Atom" Display="3" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath"/>
+    <ROW Feature="PROSMain" Title="PROS" Description="Installs PROS Toolchain and PROS CLI" Display="0" Level="1" Directory_="APPDIR" Attributes="0" Components="CLIOnMachinePath CLIOnUserPath PROS ProductInformation agrep.exe algo.h algorithm algorithm_1 algorithm_2 algorithmfwd.h alloca.h ansi.h ansi2knr.exe aprofilevalidation.specs aprofilevalidation.specs_1 aprofilevalidation.specs_10 aprofilevalidation.specs_11 aprofilevalidation.specs_12 aprofilevalidation.specs_13 aprofilevalidation.specs_14 aprofilevalidation.specs_15 aprofilevalidation.specs_16 aprofilevalidation.specs_17 aprofilevalidation.specs_18 aprofilevalidation.specs_19 aprofilevalidation.specs_2 aprofilevalidation.specs_20 aprofilevalidation.specs_3 aprofilevalidation.specs_4 aprofilevalidation.specs_5 aprofilevalidation.specs_6 aprofilevalidation.specs_7 aprofilevalidation.specs_8 aprofilevalidation.specs_9 ar.exe arm_acle.h armelf.x armnoneeabiaddr2line.exe armnoneeabiar.exe armnoneeabias.exe armnoneeabic.exe armnoneeabicfilt.exe armnoneeabicpp.exe armnoneeabielfedit.exe armnoneeabig.exe armnoneeabigcc.exe armnoneeabigcc6.2.1.exe armnoneeabigccar.exe armnoneeabigccnm.exe armnoneeabigccranlib.exe armnoneeabigcov.exe armnoneeabigcovtool.exe armnoneeabigdb.exe armnoneeabigdbpy.exe armnoneeabigprof.exe armnoneeabild.bfd.exe armnoneeabild.exe armnoneeabinm.exe armnoneeabiobjcopy.exe armnoneeabiobjdump.exe armnoneeabiranlib.exe armnoneeabireadelf.exe armnoneeabisize.exe armnoneeabistrings.exe armnoneeabistrip.exe array array_1 array_2 as.exe assoc_container.hpp atomic_word.h atomic_word.h_1 atomic_word.h_10 atomic_word.h_11 atomic_word.h_12 atomic_word.h_13 atomic_word.h_14 atomic_word.h_15 atomic_word.h_16 atomic_word.h_17 atomic_word.h_18 atomic_word.h_19 atomic_word.h_2 atomic_word.h_20 atomic_word.h_3 atomic_word.h_4 atomic_word.h_5 atomic_word.h_6 atomic_word.h_7 atomic_word.h_8 atomic_word.h_9 auto_ptr.h awk.exe basename.exe bc.exe bin_search_tree_.hpp binary_heap_.hpp binomial_heap_.hpp binomial_heap_base_.hpp bool_set branch_policy.hpp bunzip2.exe bzip2.exe bzip2recover.exe cat.exe cc1.exe cc1plus.exe cc_hash_max_collision_check_resize_trigg cc_ht_map_.hpp cdefs.h chgrp.exe chmod.exe cksum.exe cmp.exe collect2.exe comm.exe compress.exe cond_dealtor.hpp const_iterator.hpp constructor_destructor_fn_imps.hpp constructor_destructor_fn_imps.hpp_1 constructors_destructor_fn_imps.hpp constructors_destructor_fn_imps.hpp_1 constructors_destructor_fn_imps.hpp_2 constructors_destructor_fn_imps.hpp_3 constructors_destructor_fn_imps.hpp_4 constructors_destructor_fn_imps.hpp_5 constructors_destructor_fn_imps.hpp_6 constructors_destructor_fn_imps.hpp_7 cp.exe crtbegin.o crtbegin.o_1 crtbegin.o_10 crtbegin.o_11 crtbegin.o_12 crtbegin.o_13 crtbegin.o_14 crtbegin.o_15 crtbegin.o_16 crtbegin.o_17 crtbegin.o_18 crtbegin.o_19 crtbegin.o_2 crtbegin.o_20 crtbegin.o_3 crtbegin.o_4 crtbegin.o_5 crtbegin.o_6 crtbegin.o_7 crtbegin.o_8 crtbegin.o_9 csplit.exe cut.exe date.exe dc.exe dd.exe decimal df.exe diff.exe diff3.exe dircolors.exe direct_mask_range_hashing_imp.hpp dirname.exe du.exe echo.exe egrep.exe env.exe eq_by_less.hpp erase_if.h expand.exe expr.exe factor.exe false.exe fgrep.exe find.exe fixinc_list fixincl.exe fmt.exe fold.exe fsplit.exe gawk.exe gccvar.bat grep.exe gsar.exe gunzip.exe gzip.exe head.exe id.exe indent.exe install.exe join.exe jwhois.exe ld.bfd.exe ld.exe less.exe lesskey.exe liblto_plugin0.dll limits.h limits.h_1 ln.exe logname.exe ls.exe lto1.exe ltowrapper.exe lu_counter_metadata.hpp m4.exe make.exe makedepend.exe makemsg.exe man.exe md5sum.exe mkdir.exe mkfifo.exe mknod.exe msys1.0.dll msysiconv2.dll msysintl8.dll msysregex1.dll msystermcap0.dll mv.exe mvdir.exe newlib.h nl.exe nm.exe node_metadata_selector.hpp node_metadata_selector.hpp_1 objcopy.exe objdump.exe od.exe opt_random.h opt_random.h_1 opt_random.h_10 opt_random.h_11 opt_random.h_12 opt_random.h_13 opt_random.h_14 opt_random.h_15 opt_random.h_16 opt_random.h_17 opt_random.h_18 opt_random.h_19 opt_random.h_2 opt_random.h_20 opt_random.h_3 opt_random.h_4 opt_random.h_5 opt_random.h_6 opt_random.h_7 opt_random.h_8 opt_random.h_9 paste.exe patch.exe pathchk.exe pclip.exe pr.exe printenv.exe printf.exe profiler.h ps.exe pwd.exe ranlib.exe rdimonaem.o rdimonaem.o_1 rdimonaem.o_10 rdimonaem.o_11 rdimonaem.o_12 rdimonaem.o_13 rdimonaem.o_14 rdimonaem.o_15 rdimonaem.o_16 rdimonaem.o_17 rdimonaem.o_18 rdimonaem.o_19 rdimonaem.o_2 rdimonaem.o_20 rdimonaem.o_3 rdimonaem.o_4 rdimonaem.o_5 rdimonaem.o_6 rdimonaem.o_7 rdimonaem.o_8 rdimonaem.o_9 readelf.exe recode.exe rm.exe rman.exe rmdir.exe sdiff.exe sed.exe seq.exe shar.exe sleep.exe sort.exe split.exe stego.exe strip.exe su.exe sum.exe sync.exe tac.exe tail.exe tar.exe tee.exe test.exe touch.exe tr.exe true.exe type.exe uname.exe unexpand.exe uniq.exe unrar.exe unshar.exe unzip.exe updater.exe uudecode.exe uuencode.exe wc.exe wget.exe wget.hlp which.exe whoami.exe xargs.exe yes.exe zcat.exe zip.exe"/>
+    <ROW Feature="ToolchainOnPath" Title="Toolchain on Path" Description="Adds the PROS Toolchain to your Path (optional)" Display="7" Level="4" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName ToolchainOnMachinePath ToolchainOnUserPath"/>
+    <ROW Feature="VEXProgrammi" Title="Programming Cable Driver (32-bit)" Description="Programming Cable Driver (32-bit)" Display="11" Level="1" Attributes="0" Components="ProgrammingCableDriver32"/>
+    <ROW Feature="VEXProgrammi_1" Title="Programming Cable Driver (64-bit)" Description="Programming Cable Driver (64-bit)" Display="13" Level="1" Attributes="0" Components="ProgrammingCableDriver64"/>
+    <ROW Feature="llvm" Feature_Parent="PROSEditor" Title="llvm" Description="Installs Clang toolchain for the PROS Editor" Display="3" Level="1" Directory_="APPDIR" Attributes="0" Components="BuildSystem.h LLVMOnMachinePath LLVMOnUserPath adxintrin.h allocator_interface.h asan_blacklist.txt canalyzer.bat clang.exe clang.exe_1 clang_rt.asan_dynamici386.dll clang_rt.asani386.lib clangcl.exe clangformat.exe clangrename.exe clangtidy.exe findallsymbols.exe gitclangformat libclang.dll libclang.lib libiomp5md.dll lto.h"/>
+    <ATTRIBUTE name="CurrentFeature" value="PROSEditor"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
     <ROW File="BuildSystem.h" Component_="BuildSystem.h" FileName="BUILDS~1.H|BuildSystem.h" Attributes="0" SourcePath="llvm\include\clang-c\BuildSystem.h" SelfReg="false" NextFile="CXCompilationDatabase.h"/>
@@ -3122,7 +3123,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
     <ROW BuildKey="DefaultBuild" BuildName="WebInstaller" BuildOrder="1" BuildType="0" PackageFolder="..\..\.." PackageFileName="pros-windows-web-[|ProductVersion]" Languages="en" InstallationType="3" CabsLocation="1" PackageType="1" ExeIconPath="pros-ico.ico" ExtUI="true" UseLargeSchema="true" ExeName="pros-windows-web-[|ProductVersion]" MsiPackageType="AI_ALL"/>
-    <ROW BuildKey="ExeBuild" BuildName="ExeBuild" BuildOrder="2" BuildType="0" PackageFileName="pros-windows-[|ProductVersion]" Languages="en" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="2" PackageType="1" FilesInsideExe="true" ExeIconPath="pros-ico.ico" ExtractionFolder="[AppDataFolder][|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="pros-windows-[|ProductVersion]" MsiPackageType="AI_ALL"/>
+    <ROW BuildKey="ExeBuild" BuildName="ExeBuild" BuildOrder="2" BuildType="0" PackageFileName="pros-windows-[|ProductVersion]" Languages="en" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="2" PackageType="1" FilesInsideExe="true" ExeIconPath="pros-ico.ico" ExtractionFolder="[AppDataFolder][|ProductName]" ExtUI="true" UseLargeSchema="true" ExeName="pros-windows-[|ProductVersion]" MsiPackageType="AI_ALL"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -3162,6 +3163,7 @@
     <ROW Action="AI_InstallPostPrerequisite" Description="Installing prerequisite software" Template="Installing [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
     <ROW Action="AI_InstallPrerequisite" Description="Installing prerequisite software" Template="Installing [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
     <ROW Action="AI_VerifyPrereq" Description="Verifying prerequisites" Template="[1] was not installed correctly." DescriptionLocId="ActionText.Description.AI_VerifyPrereq" TemplateLocId="ActionText.Template.AI_VerifyPrereq"/>
+    <ROW Action="PROSCLIFirstRun" Description="Initializing PROS CLI"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
     <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="ExeBuild"/>
@@ -3169,6 +3171,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
+    <ROW Name="PowerShellScriptLauncher.dll" SourcePath="&lt;AI_CUSTACTS&gt;PowerShellScriptLauncher.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="ResourceCleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ResourceCleaner.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
@@ -3182,6 +3185,8 @@
     <ROW Feature_="CLI32" Level="0" Condition="VersionNT64"/>
     <ROW Feature_="Editor32" Level="0" Condition="VersionNT64"/>
     <ROW Feature_="Editor64" Level="0" Condition="NOT VersionNT64"/>
+    <ROW Feature_="VEXProgrammi" Level="4" Condition="NOT MsiRunningElevated"/>
+    <ROW Feature_="VEXProgrammi_1" Level="4" Condition="NOT MsiRunningElevated"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
     <ROW Dialog_="ConfigureDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="ConfigureDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
@@ -3271,6 +3276,7 @@
     <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
     <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
     <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="PROSCLIFirstRun" Target="AEkAcwA2ADQAQgBpAHQAAgABAFAAYQByAGEAbQBzAAIALQBhAHAAcABkAGkAcgAgAFsAQQBQAFAARABJAFIAXQABAFMAYwByAGkAcAB0AAIAUABhAHIAYQBtACgAJABhAHAAcABEAGkAcgApAA0ACgANAAoAJABwAHIAbwBzAFAAcgBvAGMAIAA9ACAAJABhAHAAcABEAGkAcgAgACsAIAAiAGMAbABpAFwAcAByAG8AcwAuAGUAeABlACIADQAKACQAZgBsAGEAZwBzACAAPQAgACIAYwBvAG4AZAB1AGMAdAAgAGYAaQByAHMAdAAtAHIAdQBuACAALQAtAHUAcwBlAC0AZABlAGYAYQB1AGwAdABzACAALQAtAG4AbwAtAGYAbwByAGMAZQAgAC0ALQBhAHAAcABsAHkALQBwAHIAbwB2AGkAZABlAHIAcwAiAA0ACgBpAGYAKAAhACgAVABlAHMAdAAtAEMAbwBuAG4AZQBjAHQAaQBvAG4AIAAtAGMAbwBtAHAAdQB0AGUAcgAgAGEAcABpAC4AZwBpAHQAaAB1AGIALgBjAG8AbQAgAC0AYwBvAHUAbgB0ACAAMQAgAC0AcQB1AGkAZQB0ACkAKQAgAFsAXAB7AF0ADQAKAAkAJABmAGwAYQBnAHMAIAA9ACAAJABmAGwAYQBnAHMAIAArACAAIgAgAC0ALQBuAG8ALQBkAG8AdwBuAGwAbwBhAGQAIgANAAoAWwBcAH0AXQANAAoAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAC0AVwBhAGkAdAAgAC0ARgBpAGwAZQBQAGEAdABoACAAJABwAHIAbwBzAFAAcgBvAGMAIAAkAGYAbABhAGcAcw=="/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
@@ -3303,14 +3309,20 @@
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
+    <ROW Action="PROSCLIFirstRun" Type="1537" Source="PowerShellScriptLauncher.dll" Target="RunPowerShellScript" Options="1" AdditionalSeq="AI_DATA_SETTER_1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_ProgramFiles][ProductName]#ExeBuild:[AI_ProgramFiles][ProductName]"/>
-    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]" MultiBuildTarget="DefaultBuild:[ProgramMenuFolder]#ExeBuild:[ProgramMenuFolder]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiEnvComponent">
-    <ROW Environment="PROS_TOOLCHAIN" Name="=-PROS_TOOLCHAIN" Value="[toolchain_Dir]" Component_="armnoneeabigcc.exe"/>
-    <ROW Environment="Path" Name="=-Path" Value="[~];%PROS_TOOLCHAIN%\bin" Component_="TOOLCHAIN_ON_PATH"/>
-    <ROW Environment="Path_1" Name="=-Path" Value="[~];[llvm_Dir]" Component_="clang.exe"/>
+    <ROW Environment="PROS_TOOLCHAIN" Name="=-*PROS_TOOLCHAIN" Value="[toolchain_Dir]" Component_="CLIOnMachinePath"/>
+    <ROW Environment="PROS_TOOLCHAIN_1" Name="=-PROS_TOOLCHAIN" Value="[toolchain_Dir]" Component_="CLIOnUserPath"/>
+    <ROW Environment="Path" Name="=-Path" Value="[~];[APPDIR]cli" Component_="CLIOnUserPath"/>
+    <ROW Environment="Path_1" Name="=-*Path" Value="[~];[llvm_Dir]" Component_="LLVMOnMachinePath"/>
+    <ROW Environment="Path_1_1" Name="=-*Path" Value="[~];%PROS_TOOLCHAIN%\bin" Component_="ToolchainOnMachinePath"/>
+    <ROW Environment="Path_1_2" Name="=-Path" Value="[~];[llvm_Dir]" Component_="LLVMOnUserPath"/>
+    <ROW Environment="Path_1_3" Name="=-*Path" Value="[~];[APPDIR]cli" Component_="CLIOnMachinePath"/>
+    <ROW Environment="Path_2" Name="=-Path" Value="[~];%PROS_TOOLCHAIN%\bin" Component_="ToolchainOnUserPath"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="prosico_1.exe" SourcePath="pros-ico.ico" Index="0"/>
@@ -3340,8 +3352,11 @@
     <ROW Action="AI_UPDATER_UNINSTALL" Condition="($updater.exe = 2) AND (?updater.exe = 3) AND NOT (UPGRADINGPRODUCTCODE)" Sequence="1551"/>
     <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
     <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
+    <ROW Action="AI_AiRemoveFilesRollback" Sequence="3099"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="ExeBuild"/>
-    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102" Builds="ExeBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="ExeBuild"/>
     <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="ExeBuild"/>
     <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="ExeBuild"/>
     <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="ExeBuild"/>
@@ -3352,9 +3367,8 @@
     <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="ExeBuild"/>
     <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
     <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="ExeBuild"/>
-    <ROW Action="AI_AppSearchEx" Sequence="101"/>
-    <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
-    <ROW Action="AI_AiRemoveFilesRollback" Sequence="3099"/>
+    <ROW Action="PROSCLIFirstRun" Condition="( ( NOT Installed ) OR ( Installed AND REMOVE &lt;&gt; &quot;ALL&quot; AND AI_INSTALL_MODE &lt;&gt; &quot;Remove&quot; ) ) AND ( (VersionNT &gt; 501) OR (VersionNT = 501 AND ServicePackLevel &gt;= 2) )" Sequence="6402"/>
+    <ROW Action="AI_DATA_SETTER_1" Condition="( ( NOT Installed ) OR ( Installed AND REMOVE &lt;&gt; &quot;ALL&quot; AND AI_INSTALL_MODE &lt;&gt; &quot;Remove&quot; ) ) AND ( (VersionNT &gt; 501) OR (VersionNT = 501 AND ServicePackLevel &gt;= 2) )" Sequence="6401"/>
     <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
@@ -3384,7 +3398,8 @@
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild;ExeBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiProgIdComponent">
-    <ROW ProgId="[|ProductName]" Icon_="prosico_1.exe"/>
+    <ROW ProgId="PROS.Editor32.pros" Description="PROS Project" Icon_="prosico_1.exe"/>
+    <ROW ProgId="PROS.Editor64.pros" Description="PROS Project" Icon_="prosico_1.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
     <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
@@ -3392,10 +3407,8 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
     <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
-    <ROW Registry="B5158184F44A6981C5919229A6AEBE" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="B5158184F44A6981C5919229A6AEBE" Value="1" Component_="B5158184F44A6981C5919229A6AEBE"/>
     <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
     <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
-    <ROW Registry="D7E473DF14F3E98497864847195F2" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="D7E473DF14F3E98497864847195F2" Value="1" Component_="D7E473DF14F3E98497864847195F2"/>
     <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
     <ROW Registry="DisplayName" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayName" Value="[AI_PRODUCTNAME_ARP]" Component_="AI_CustomARPName"/>
     <ROW Registry="DisplayVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayVersion" Value="[ProductVersion]" Component_="AI_CustomARPName"/>
@@ -3403,16 +3416,21 @@
     <ROW Registry="HelpLink" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpLink" Value="[ARPHELPLINK]" Component_="AI_CustomARPName"/>
     <ROW Registry="HelpTelephone" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpTelephone" Value="[ARPHELPTELEPHONE]" Component_="AI_CustomARPName"/>
     <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
-    <ROW Registry="InstallShield" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="InstallShield" Value="1" Component_="InstallShield"/>
+    <ROW Registry="InstallShield" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="InstallShield" Value="1" Component_="OldProgrammingCableDriver"/>
+    <ROW Registry="LLVMOnMachinePath" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="LLVMOnMachinePath" Component_="LLVMOnMachinePath"/>
+    <ROW Registry="LLVMOnUserPath" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="LLVMOnUserPath" Component_="LLVMOnUserPath"/>
     <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="PrivilegedInstaller" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="CLIOnMachinePath" Value="[MSIINSTALLPERUSER]" Component_="CLIOnMachinePath"/>
     <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
-    <ROW Registry="TOOLCHAIN_ON_PATH" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="TOOLCHAIN_ON_PATH" Component_="TOOLCHAIN_ON_PATH"/>
+    <ROW Registry="TOOLCHAIN_ON_PATH" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="ToolchainOnMachinePath" Component_="ToolchainOnMachinePath"/>
+    <ROW Registry="TOOLCHAIN_ON_PATH1" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="ToolchainOnUserPath" Component_="ToolchainOnUserPath"/>
     <ROW Registry="URLInfoAbout" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLInfoAbout" Value="[ARPURLINFOABOUT]" Component_="AI_CustomARPName"/>
     <ROW Registry="URLUpdateInfo" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLUpdateInfo" Value="[ARPURLUPDATEINFO]" Component_="AI_CustomARPName"/>
     <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /i [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
     <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /i [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
-    <ROW Registry="VEXProgrammi" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="VEXProgrammi" Value="1" Component_="VEXProgrammi"/>
-    <ROW Registry="VEXProgrammi_1" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="VEXProgrammi_1" Value="1" Component_="VEXProgrammi_1"/>
+    <ROW Registry="UserInstall" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="CLIOnUserPath" Component_="CLIOnUserPath"/>
+    <ROW Registry="VEXProgrammi" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="VEXProgrammi" Value="1" Component_="ProgrammingCableDriver32"/>
+    <ROW Registry="VEXProgrammi_1" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="VEXProgrammi_1" Value="1" Component_="ProgrammingCableDriver64"/>
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
     <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName"/>
     <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName"/>
@@ -3427,22 +3445,17 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
     <ROW UpgradeCode="{E076379A-3AE0-4987-AA99-BE0764D0CA04}" VersionMax="2.1.6" Language="1033" Attributes="517" ActionProperty="PROS_OLDER_UPGRADE"/>
-    <ROW UpgradeCode="{4AC5FEF6-7306-4ECB-B9A7-93E4C6C170EA}" VersionMax="2.1.6" Language="1033" Attributes="519" Remove="ProsEditor" ActionProperty="PROS_ATOM_UPGRADE"/>
+    <ROW UpgradeCode="{6ED43899-25A4-4ACE-A335-0E87F58E3A40}" VersionMax="2.1.6" Language="1033" Attributes="519" Remove="ProsEditor" ActionProperty="PROS_ATOM_UPGRADE"/>
     <ROW UpgradeCode="{9039FAF2-4BC6-4B61-B1F0-132CB44A673F}" VersionMax="2.5.1" Language="1033" Attributes="517" ActionProperty="PROS_UPGRADE"/>
+    <ROW UpgradeCode="{254ED860-2037-4D3A-B537-0D8354EBE028}" VersionMin="0.0.0" Language="1033" Attributes="5" ActionProperty="UPGRADE_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="B5158184F44A6981C5919229A6AEBE" DisplayName="Visual C++ Redistributable for Visual Studio 2015 Update 3 x64" VersionMin="14.0" SetupFileUrl="Prerequisites\Visual C++ Redistributable for Visual Studio 2015\vc2015u3_redist_x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows Vista x64, Windows Vista x64 Service Pack 1, Windows 7 x64, Windows Server 2008 R2 x64" Operator="1" Options="xf" TargetName="Visual C++ Redistributable for Visual Studio 2015\vc2015u3_redist_x64.exe" Feature="B5158184F44A6981C5919229A6AEBE"/>
-    <ROW PrereqKey="D7E473DF14F3E98497864847195F2" DisplayName="Visual C++ Redistributable for Visual Studio 2015 Update 3 x86" VersionMin="14.0" SetupFileUrl="Prerequisites\Visual C++ Redistributable for Visual Studio 2015\vc2015u3_redist_x86.exe" Location="0" ExactSize="0" WinNTVersions="Windows Vista x86, Windows Vista x86 Service Pack 1, Windows 7 x86" WinNT64Versions="Windows Vista x64, Windows Vista x64 Service Pack 1, Windows 7 x64, Windows Server 2008 R2 x64" Operator="0" Options="f" TargetName="Visual C++ Redistributable for Visual Studio 2015\vc2015u3_redist_x86.exe" Feature="D7E473DF14F3E98497864847195F2"/>
-    <ROW PrereqKey="InstallShield" DisplayName="Old Programming Cable Driver" VersionMin="14.0.0.162" SetupFileUrl="PL2303Driver.exe" Location="0" ExactSize="0" Operator="1" Options="f" TargetName="PL2303Driver.exe" Feature="InstallShield"/>
+    <ROW PrereqKey="InstallShield" DisplayName="Old Programming Cable Driver" VersionMin="14.0.0.162" SetupFileUrl="PL2303Driver.exe" Location="0" ExactSize="0" Operator="1" Options="fi" TargetName="PL2303Driver.exe" Feature="InstallShield"/>
     <ROW PrereqKey="VEXProgrammi" DisplayName="Programming Cable Driver (32-bit)" VersionMin="14.0.0.162" SetupFileUrl="VEXDriver32.exe" Location="0" ExactSize="0" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64/Windows 10 x64" Operator="1" Options="f" TargetName="VEXDriver32.exe" Feature="VEXProgrammi"/>
     <ROW PrereqKey="VEXProgrammi_1" DisplayName="Programming Cable Driver (64-bit)" VersionMin="14.0.0.162" SetupFileUrl="VEXDriver64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" Operator="1" Options="f" TargetName="VEXDriver64.exe" Feature="VEXProgrammi_1"/>
-    <ATTRIBUTE name="PrereqsOrder" value="InstallShield VEXProgrammi VEXProgrammi_1 B5158184F44A6981C5919229A6AEBE D7E473DF14F3E98497864847195F2"/>
+    <ATTRIBUTE name="PrereqsOrder" value="InstallShield VEXProgrammi VEXProgrammi_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
-    <ROW SearchKey="B5158184F44A6981C5919229A6AEBEVersion" Prereq="B5158184F44A6981C5919229A6AEBE" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\DevDiv\VC\Servicing\14.0\RuntimeMinimum\Version" VerMin="14.0.24212" Order="1" Property="PreReqSearch_B5158184F44A6981C5919229A6AEBE"/>
-    <ROW SearchKey="D7E473DF14F3E98497864847195F2SystemFoldermsvcp140.dll" Prereq="D7E473DF14F3E98497864847195F2" SearchType="0" SearchString="[SystemFolder]msvcp140.dll" VerMin="14.0.24212" Order="2" Property="PreReqSearch_1_D7E473DF14F3E98497864847195F2"/>
-    <ROW SearchKey="D7E473DF14F3E98497864847195F2SystemFoldervcruntime140.dll" Prereq="D7E473DF14F3E98497864847195F2" SearchType="0" SearchString="[SystemFolder]vcruntime140.dll" VerMin="14.0.24212" Order="3" Property="PreReqSearch_2_D7E473DF14F3E98497864847195F2"/>
-    <ROW SearchKey="D7E473DF14F3E98497864847195F2Version" Prereq="D7E473DF14F3E98497864847195F2" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\DevDiv\VC\Servicing\14.0\RuntimeMinimum\Version" VerMin="14.0.24212" Order="1" Property="PreReqSearch_D7E473DF14F3E98497864847195F2"/>
     <ROW SearchKey="ProdCode" Prereq="VEXProgrammi" SearchType="3" SearchString="{3937220E-6EAF-4815-B88B-D49D5B36F9E4}" Order="2" Property="PreReqSearch_2"/>
     <ROW SearchKey="ProdCode_1" Prereq="VEXProgrammi_1" SearchType="3" SearchString="{00B74926-F27A-4661-8827-6BFCAFD35AF0}" Order="2" Property="PreReqSearch_3"/>
     <ROW SearchKey="UpgradeCode" Prereq="InstallShield" SearchType="4" SearchString="{A9111573-EF12-4D80-A5B9-55F620D5BCA1}" Order="2" Property="PreReqSearch_1"/>
