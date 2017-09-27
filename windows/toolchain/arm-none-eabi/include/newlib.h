@@ -83,6 +83,9 @@
 /* Define if small footprint nano-formatted-IO implementation used.  */
 /* #undef _NANO_FORMATTED_IO */
 
+/* Define if using retargetable functions for default lock routines.  */
+#define _RETARGETABLE_LOCKING 1
+
 /*
  * Iconv encodings enabled ("to" direction)
  */
