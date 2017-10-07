@@ -3217,7 +3217,6 @@
     <ROW Action="AI_InstallPostPrerequisite" Description="Installing prerequisite software" Template="Installing [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
     <ROW Action="AI_InstallPrerequisite" Description="Installing prerequisite software" Template="Installing [1]{[2] completed}" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
     <ROW Action="AI_VerifyPrereq" Description="Verifying prerequisites" Template="[1] was not installed correctly." DescriptionLocId="ActionText.Description.AI_VerifyPrereq" TemplateLocId="ActionText.Template.AI_VerifyPrereq"/>
-    <ROW Action="PROSCLIFirstRun" Description="Initializing PROS CLI"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
     <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="ExeBuild"/>
@@ -3225,7 +3224,6 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
-    <ROW Name="PowerShellScriptLauncher.dll" SourcePath="&lt;AI_CUSTACTS&gt;PowerShellScriptLauncher.dll"/>
     <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
     <ROW Name="ResourceCleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ResourceCleaner.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
@@ -3239,8 +3237,8 @@
     <ROW Feature_="CLI32" Level="0" Condition="VersionNT64"/>
     <ROW Feature_="Editor32" Level="0" Condition="VersionNT64"/>
     <ROW Feature_="Editor64" Level="0" Condition="NOT VersionNT64"/>
-    <ROW Feature_="VEXProgrammi" Level="4" Condition="NOT MsiRunningElevated"/>
-    <ROW Feature_="VEXProgrammi_1" Level="4" Condition="NOT MsiRunningElevated"/>
+    <ROW Feature_="VEXProgrammi" Level="4" Condition="(NOT MsiRunningElevated) OR (VersionNT64)"/>
+    <ROW Feature_="VEXProgrammi_1" Level="4" Condition="(NOT MsiRunningElevated) OR (NOT VersionNT64)"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
     <ROW Dialog_="ConfigureDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="ConfigureDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
@@ -3330,7 +3328,6 @@
     <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
     <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
     <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
-    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="PROSCLIFirstRun" Target="AEkAcwA2ADQAQgBpAHQAAgABAFAAYQByAGEAbQBzAAIALQBhAHAAcABkAGkAcgAgAFsAQQBQAFAARABJAFIAXQABAFMAYwByAGkAcAB0AAIAUABhAHIAYQBtACgAJABhAHAAcABEAGkAcgApAA0ACgANAAoAJABwAHIAbwBzAFAAcgBvAGMAIAA9ACAAJABhAHAAcABEAGkAcgAgACsAIAAiAGMAbABpAFwAcAByAG8AcwAuAGUAeABlACIADQAKACQAZgBsAGEAZwBzACAAPQAgACIAYwBvAG4AZAB1AGMAdAAgAGYAaQByAHMAdAAtAHIAdQBuACAALQAtAHUAcwBlAC0AZABlAGYAYQB1AGwAdABzACAALQAtAG4AbwAtAGYAbwByAGMAZQAgAC0ALQBhAHAAcABsAHkALQBwAHIAbwB2AGkAZABlAHIAcwAiAA0ACgBpAGYAKAAhACgAVABlAHMAdAAtAEMAbwBuAG4AZQBjAHQAaQBvAG4AIAAtAGMAbwBtAHAAdQB0AGUAcgAgAGEAcABpAC4AZwBpAHQAaAB1AGIALgBjAG8AbQAgAC0AYwBvAHUAbgB0ACAAMQAgAC0AcQB1AGkAZQB0ACkAKQAgAFsAXAB7AF0ADQAKAAkAJABmAGwAYQBnAHMAIAA9ACAAJABmAGwAYQBnAHMAIAArACAAIgAgAC0ALQBuAG8ALQBkAG8AdwBuAGwAbwBhAGQAIgANAAoAWwBcAH0AXQANAAoAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAC0AVwBhAGkAdAAgAC0ARgBpAGwAZQBQAGEAdABoACAAJABwAHIAbwBzAFAAcgBvAGMAIAAkAGYAbABhAGcAcw=="/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
@@ -3363,11 +3360,9 @@
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
     <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
-    <ROW Action="PROSCLIFirstRun" Type="1537" Source="PowerShellScriptLauncher.dll" Target="RunPowerShellScript" Options="1" AdditionalSeq="AI_DATA_SETTER_1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_ProgramFiles][ProductName]#ExeBuild:[AI_ProgramFiles][ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]" MultiBuildTarget="DefaultBuild:[ProgramMenuFolder]#ExeBuild:[ProgramMenuFolder]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
-    <ROW Action="WinRTIntellisenseXboxLiveExtensionSDKOtherLanguagesx86_enus.msi" Type="103" Source="{4AC5FEF6-7306-4ECB-B9A7-93E4C6C170EA}" Target="/x /quiet /passive"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiEnvComponent">
     <ROW Environment="PROS_TOOLCHAIN" Name="=-*PROS_TOOLCHAIN" Value="[toolchain_Dir]" Component_="CLIOnMachinePath"/>
@@ -3422,10 +3417,7 @@
     <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="ExeBuild"/>
     <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
     <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="ExeBuild"/>
-    <ROW Action="PROSCLIFirstRun" Condition="( ( NOT Installed ) OR ( Installed AND REMOVE &lt;&gt; &quot;ALL&quot; AND AI_INSTALL_MODE &lt;&gt; &quot;Remove&quot; ) ) AND ( (VersionNT &gt; 501) OR (VersionNT = 501 AND ServicePackLevel &gt;= 2) )" Sequence="6403"/>
-    <ROW Action="AI_DATA_SETTER_1" Condition="( ( NOT Installed ) OR ( Installed AND REMOVE &lt;&gt; &quot;ALL&quot; AND AI_INSTALL_MODE &lt;&gt; &quot;Remove&quot; ) ) AND ( (VersionNT &gt; 501) OR (VersionNT = 501 AND ServicePackLevel &gt;= 2) )" Sequence="6402"/>
     <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
-    <ROW Action="WinRTIntellisenseXboxLiveExtensionSDKOtherLanguagesx86_enus.msi" Condition="( NOT Installed ) AND ( (&amp;PROSEditor = 3) AND NOT (!PROSEditor = 3) )" Sequence="6401"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="InstallTypeDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
