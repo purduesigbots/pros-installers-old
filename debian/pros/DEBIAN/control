@@ -1,6 +1,0 @@
-Package: pros
-Architecture: amd64
-Maintainer: Purdue ACM SIGBots
-Priority: Optional
-Depends: gcc-arm-none-eabi
-Version: 2.5.2
