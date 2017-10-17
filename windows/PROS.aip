@@ -6425,9 +6425,9 @@
     <ROW Environment="PROS_TOOLCHAIN" Name="=-*PROS_TOOLCHAIN" Value="[toolchain_Dir]usr" Component_="CLIOnMachinePath"/>
     <ROW Environment="PROS_TOOLCHAIN_1" Name="=-PROS_TOOLCHAIN" Value="[toolchain_Dir]usr" Component_="CLIOnUserPath"/>
     <ROW Environment="Path" Name="=-Path" Value="[~];[APPDIR]cli" Component_="CLIOnUserPath"/>
-    <ROW Environment="Path_1" Name="=-*Path" Value="[~];[llvm_Dir]" Component_="LLVMOnMachinePath"/>
+    <ROW Environment="Path_1" Name="=-*Path" Value="[~];[bin_Dir]" Component_="LLVMOnMachinePath"/>
     <ROW Environment="Path_1_1" Name="=-*Path" Value="[~];%PROS_TOOLCHAIN%\bin" Component_="ToolchainOnMachinePath"/>
-    <ROW Environment="Path_1_2" Name="=-Path" Value="[~];[llvm_Dir]" Component_="LLVMOnUserPath"/>
+    <ROW Environment="Path_1_2" Name="=-Path" Value="[~];[bin_Dir]" Component_="LLVMOnUserPath"/>
     <ROW Environment="Path_1_3" Name="=-*Path" Value="[~];[APPDIR]cli" Component_="CLIOnMachinePath"/>
     <ROW Environment="Path_2" Name="=-Path" Value="[~];%PROS_TOOLCHAIN%\bin" Component_="ToolchainOnUserPath"/>
   </COMPONENT>
