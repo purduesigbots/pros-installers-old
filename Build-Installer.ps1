@@ -21,6 +21,5 @@ ai /rebuild $project
 
 
 ai /newproject $root\updates.aip -type update 
-ai /edit $root\updates.aip /NewUpdate @(((Resolve-Path -Path .\output\windows-exe).Path) + "\pros-win-*.exe")[0] -name PROS -display_name PROS -url "localhost/file.exe"
-ai /edit $root\updates.aip /SetOutputLocation -buildname DefaultBuild -path (Resolve-Path -Path .\output\windows-exe).Path
-ai /rebuild $root\updates.aip 
+ai /edit $root\updates.aip /NewUpdate (Get-ChildItem -Path (Resolve-Path -Path .\output\windows-exe) -Filter "*.exe")[0].FullName -name PROS -display_name PROS -url "http://localhost/file.exe"
+ai /rebuild $root\updates.aip
