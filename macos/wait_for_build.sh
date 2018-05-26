@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# from https://discuss.circleci.com/t/waiting-for-build-to-complete-when-invoked-via-http-api/14989
 CIRCLE_API_TOKEN=$1
 BUILD_URL=$2
 TIMEOUT_IN_SECS=$3
