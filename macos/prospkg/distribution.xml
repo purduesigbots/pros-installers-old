@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="1">
+	<title>PROS</title>
+	<background file="128.png" alignment="bottomleft" mime-type="image/png" scaling="proportional"/> 
+	<welcome file="welcome.html" mime-type="text/html"/>
+	<license file="license.html" mime-type="text/html"/>
+	<pkg-ref id="edu.purdue.cs.pros.pros-cli"/>
+	<pkg-ref id="com.purduesigbots.pros-toolchain"/>
+	<pkg-ref id="edu.purdue.cs.pros.pros-editor"/>
+	<options customize="always" require-scripts="false" allow-external-scripts="true"/>
+	<choices-outline>
+		<line choice="default">
+		<line choice="edu.purdue.cs.pros.pros-cli"/>
+		<line choice="com.purduesigbots.pros-toolchain"/>
+		<line choice="edu.purdue.cs.pros.pros-editor">
+			<line choice="com.github.cquery-project.cquery"/>
+		</line>
+	</line>
+	</choices-outline>
+	<choice id="default" title="PROS Components" description="Select which PROS components you would like to install."/>
+	<choice id="edu.purdue.cs.pros.pros-cli" enabled="false" title="PROS CLI" description="The PROS Command Line Interface (CLI) is the tool that handles PROS project management as well as flashing to the microcontroller.">
+		<pkg-ref id="edu.purdue.cs.pros.pros-cli"/>
+	</choice>
+	<pkg-ref id="edu.purdue.cs.pros.pros-cli" onConclusion="none">proscli.pkg</pkg-ref>
+	<choice id="com.purduesigbots.pros-toolchain" title="PROS Toolchain" description="The PROS toolchain is a set of publicly available binaries (gcc-arm-none-eabi) that facilitate cross-compiling program binaries for ARM-based microcontrollers. If you already have this installed, you should not install this component.">
+		<pkg-ref id="com.purduesigbots.pros-toolchain"/>
+	</choice>
+	<pkg-ref id="com.purduesigbots.pros-toolchain" onConclusion="none">prostoolchain.pkg</pkg-ref>
+	<choice id="edu.purdue.cs.pros.pros-editor" title="PROS Editor" description="The PROS Editor is a repackaged version of the Atom text editor, by GitHub. If you wish to use a different editor, you do not need to install this component.">
+		<pkg-ref id="edu.purdue.cs.pros.pros-editor"/>
+	</choice>
+	<pkg-ref id="edu.purdue.cs.pros.pros-editor" onConclusion="none">proseditor.pkg</pkg-ref>
+</installer-gui-script>
