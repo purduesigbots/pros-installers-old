@@ -27,10 +27,11 @@ EOF
 chmod +x macos/proseditor/scripts/*
 echo =============== CREATE DISTRIBUTION ===============
 cp -r PROS\ Editor.app macos/proseditorpkg/ROOT
+mkdir -p /tmp/artifacts
 pkgbuild \
   --root macos/proseditorpkg/ROOT/ \
   --scripts macos/proseditorpkg/scripts/ \
   --identifier edu.purdue.cs.pros.pros-editor
   --version $VERSION \
   --install-location /Applications \
-  pros-editor.pkg
+  /tmp/artifacts/pros-editor.pkg
