@@ -23,10 +23,10 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
+      - run: mkdir -p /tmp/artifacts
       - run: ./macos/trigger_cli.sh
       - store_artifacts:
           path: pros-cli.pkg
-      - run: mkdir -p /tmp/artifacts
       - persist_to_workspace:
           root: /tmp/artifacts
           paths:
@@ -41,12 +41,12 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
+      - run: mkdir -p /tmp/artifacts
       - run: ./macos/trigger_editor.sh
       - run: ./macos/prep_cquery.sh
       - run: ./macos/build_editor_pkg.sh
       - store_artifacts:
           path: pros-editor.pkg
-      - run: mkdir -p /tmp/artifacts
       - persist_to_workspace:
           root: /tmp/artifacts
           paths:
@@ -55,15 +55,15 @@ jobs:
   build_toolchain:
     macos:
       xcode: "9.0"
-    working_director: ~/pros_build
+    working_directory: ~/pros_build
     steps:
       - attach_workspace:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
+      - run: mkdir -p /tmp/artifacts
       - run: ./macos/build_toolchain_pkg.sh
       - store_artifacts:
           path: pros-toolchain.pkg
-      - run: mkdir -p /tmp/artifacts
       - persist_to_workspace:
           root: /tmp/artifacts
           paths:

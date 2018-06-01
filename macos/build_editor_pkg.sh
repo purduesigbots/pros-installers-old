@@ -3,7 +3,7 @@
 VERSION=$(defaults read PROS\ Editor.app/Contents/Info.plist CFBundleVersion)
 
 echo =============== SETUP ENVIRONMENT ===============
-unzip tmp/pros-editor-mac.zip
+unzip atom/out/pros-editor-mac.zip
 cp -r macos/cquery PROS\ Editor.app/Contents/MacOS/
 mkdir -p macos/proseditorpkg/{ROOT,scripts}
 
@@ -22,6 +22,7 @@ cat << EOF > macos/proseditorpkg/scripts/postinstall
 #!/bin/sh
 cd /Applications/PROS\ Editor.app/Contents/MacOS/cquery
 ./waf install --bundled-clang=6.0.0
+cd -
 EOF
 
 chmod +x macos/proseditor/scripts/*
