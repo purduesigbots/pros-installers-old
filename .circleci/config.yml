@@ -19,6 +19,7 @@ jobs:
       xcode: "9.0"
     working_directory: ~/pros_build
     steps:
+      - run: brew install jq
       - attach_workspace:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
@@ -35,6 +36,7 @@ jobs:
       xcode: "9.0"
     working_directory: ~/pros_build
     steps:
+      - run: brew install jq
       - attach_workspace:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
