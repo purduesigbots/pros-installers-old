@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION=$(defaults read PROS\ Editor.app/Contents/Info.plist CFBundleVersion)
+
 echo =============== SETUP ENVIRONMENT ===============
 unzip tmp/pros-editor-mac.zip
 cp -r macos/cquery PROS\ Editor.app/Contents/MacOS/
@@ -23,12 +25,12 @@ cd /Applications/PROS\ Editor.app/Contents/MacOS/cquery
 EOF
 
 chmod +x macos/proseditor/scripts/*
-cho =============== CREATE DISTRIBUTION ===============
+echo =============== CREATE DISTRIBUTION ===============
 cp -r PROS\ Editor.app macos/proseditorpkg/ROOT
 pkgbuild \
   --root macos/proseditorpkg/ROOT/ \
   --scripts macos/proseditorpkg/scripts/ \
   --identifier edu.purdue.cs.pros.pros-editor
-  --version hhh \
+  --version $VERSION \
   --install-location /Applications \
   pros-editor.pkg
