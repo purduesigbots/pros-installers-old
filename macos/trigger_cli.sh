@@ -22,8 +22,9 @@
 
 git clone git@github.com:purduesigbots/pros-cli.git
 chmod +x pros-cli/scripts/install_mac_build_dependencies.sh pros-cli/scripts/build_cli_mac.sh pros-cli/scripts/build_pkg_mac.sh
-./pros-cli/scripts/install_mac_build_dependencies.sh
-./pros-cli/scripts/build_cli_mac.sh
-./pros-cli/scripts/build_pkg_mac.sh
-
-cp pros-cli.pkg /tmp/artifacts
+cd pros-cli
+./scripts/install_mac_build_dependencies.sh
+./scripts/build_cli_mac.sh
+./scripts/build_pkg_mac.sh
+cd -
+cp pros-cli/pros-cli.pkg /tmp/artifacts

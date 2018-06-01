@@ -1,9 +1,9 @@
 #!/bin/bash
 
-VERSION=$(defaults read PROS\ Editor.app/Contents/Info.plist CFBundleVersion)
-
 echo =============== SETUP ENVIRONMENT ===============
 unzip atom/out/pros-editor-mac.zip
+VERSION=$(defaults read PROS\ Editor.app/Contents/Info.plist CFBundleVersion)
+echo Building for PROS Editor version $VERSION
 cp -r macos/cquery PROS\ Editor.app/Contents/MacOS/
 mkdir -p macos/proseditorpkg/{ROOT,scripts}
 
