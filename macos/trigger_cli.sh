@@ -9,7 +9,8 @@ echo =============== WAITING FOR BUILD TO COMPLETE ===============
 
 echo =============== BUILD COMPLETE ===============
 BUILD_STATUS=$(curl $BASE_URL/$BUILD_NUMBER?circle-token=$CLI_TOKEN | jq --raw-output --exit-status '.outcome')
-if [[ $BUILD_STATUS != 'success' ]] then
+if [[ $BUILD_STATUS != 'success' ]]
+then
   echo "Building CLI failed! Check build $BUILD_NUMBER for more details"
   exit 1
 fi
