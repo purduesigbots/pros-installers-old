@@ -15,4 +15,5 @@ if [[ $BUILD_STATUS != 'success' ]] then
 fi
 # success- get artifact
 CLI_ARTIFACT_BASE_URL=$(curl $BASE_URL/$BUILD_NUMBER/artifacts?circle-token=$CLI_TOKEN | jq --raw-output --exit-status '.[0].url')
-curl -o pros-cli.pkg $CLI_ARTIFACT_BASE_URL?circle-token=$CLI_TOKEN
+mkdir -p /tmp/artifacts
+curl -o /tmp/artifacts/pros-cli.pkg $CLI_ARTIFACT_BASE_URL?circle-token=$CLI_TOKEN
