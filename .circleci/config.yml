@@ -7,13 +7,17 @@ jobs:
     working_directory: ~/pros_build
     steps:
       - checkout
-      - run: brew install jq
+      - persist_to_workspace:
+          root: ~/pros_build
+          path: macos
     
   build_cli:
     macos:
       xcode: "9.0"
     working_directory: ~/pros_build
     steps:
+      - attach_workspace:
+          at: macos
       - run: ./macos/trigger_cli.sh
       - store_artifacts:
           path: pros-cli.pkg
@@ -27,6 +31,8 @@ jobs:
       xcode: "9.0"
     working_directory: ~/pros_build
     steps:
+      - attach_workspace:
+          at: macos
       - run: ./macos/trigger_editor.sh
       - run: ./macos/prep_cquery.sh
       - run: ./macos/build_editor_pkg.sh
@@ -42,6 +48,8 @@ jobs:
       xcode: "9.0"
     working_director: ~/pros_build
     steps:
+      - attach_workspace:
+          at: macos
       - run: ./macos/build_toolchain_pkg.sh
       - store_artifacts:
           path: pros-toolchain.pkg
@@ -55,6 +63,8 @@ jobs:
       xcode: "9.0"
     working_directory: ~/pros_build
     steps:
+      - attach_workspace:
+          at: macos
       - attach_workspace:
           at: /tmp/artifacts
       - run: ./macos/build_installer.sh
