@@ -62,7 +62,7 @@ jobs:
           path: pros-macOS.pkg
 
 workflows:
-  version: 2.0
+  version: 2
   pros_build:
     jobs:
       - prepare_environment
