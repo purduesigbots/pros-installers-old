@@ -18,8 +18,12 @@
 #curl -o pros-editor-mac.zip $EDITOR_ARTIFACT_BASE_URL?circle-token=$CLI_TOKEN
 
 git clone git@github.com:purduesigbots/atom.git
+cd atom
+VERSION=$(git describe)
+cd -
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
 nvm install 6.9.4
 nvm use 6.9.4
 npm install -g npm@5.3.0
 ./atom/script/build --compress-artifacts
+echo $VERSION > editor_version
