@@ -21,7 +21,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run unzip /tmp/workspace/macos.zip -d .
+      - run: unzip /tmp/workspace/macos.zip -d .
       - run: ./macos/trigger_cli.sh
       - store_artifacts:
           path: pros-cli.pkg
@@ -37,7 +37,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run unzip /tmp/workspace/macos.zip -d .
+      - run: unzip /tmp/workspace/macos.zip -d .
       - run: ./macos/trigger_editor.sh
       - run: ./macos/prep_cquery.sh
       - run: ./macos/build_editor_pkg.sh
@@ -55,7 +55,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run unzip /tmp/workspace/macos.zip -d .
+      - run: unzip /tmp/workspace/macos.zip -d .
       - run: ./macos/build_toolchain_pkg.sh
       - store_artifacts:
           path: pros-toolchain.pkg
@@ -71,7 +71,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-      - run unzip /tmp/workspace/macos.zip -d .
+      - run: unzip /tmp/workspace/macos.zip -d .
       - attach_workspace:
           at: /tmp/artifacts
       - run: ./macos/build_installer.sh
