@@ -30,7 +30,7 @@ mkdir -p /tmp/artifacts
 pkgbuild \
   --root macos/proseditorpkg/ROOT/ \
   --scripts macos/proseditorpkg/scripts/ \
-  --identifier edu.purdue.cs.pros.pros-editor
+  --identifier edu.purdue.cs.pros.pros-editor \
   --version $(cat editor_version) \
   --install-location /Applications \
   /tmp/artifacts/pros-editor.pkg
