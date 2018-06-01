@@ -7,9 +7,11 @@ jobs:
     working_directory: ~/pros_build
     steps:
       - checkout
+      - run: zip -r macos.zip macos
       - persist_to_workspace:
-          root: ~/pros_build
-          path: macos
+          root: /tmp/workspace
+          paths:
+            - macos.zip
     
   build_cli:
     macos:
@@ -17,7 +19,8 @@ jobs:
     working_directory: ~/pros_build
     steps:
       - attach_workspace:
-          at: macos
+          at: /tmp/workspace
+      - run unzip /tmp/workspace/macos.zip -d .
       - run: ./macos/trigger_cli.sh
       - store_artifacts:
           path: pros-cli.pkg
@@ -32,7 +35,8 @@ jobs:
     working_directory: ~/pros_build
     steps:
       - attach_workspace:
-          at: macos
+          at: /tmp/workspace
+      - run unzip /tmp/workspace/macos.zip -d .
       - run: ./macos/trigger_editor.sh
       - run: ./macos/prep_cquery.sh
       - run: ./macos/build_editor_pkg.sh
@@ -49,7 +53,8 @@ jobs:
     working_director: ~/pros_build
     steps:
       - attach_workspace:
-          at: macos
+          at: /tmp/workspace
+      - run unzip /tmp/workspace/macos.zip -d .
       - run: ./macos/build_toolchain_pkg.sh
       - store_artifacts:
           path: pros-toolchain.pkg
@@ -64,7 +69,8 @@ jobs:
     working_directory: ~/pros_build
     steps:
       - attach_workspace:
-          at: macos
+          at: /tmp/workspace
+      - run unzip /tmp/workspace/macos.zip -d .
       - attach_workspace:
           at: /tmp/artifacts
       - run: ./macos/build_installer.sh
