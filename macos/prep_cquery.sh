@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo =============== Clone cquery ===============
-git clone https://github.com/cquery-project/cquery macos/cquery && cd macos/cquery
+git clone --depth=1 https://github.com/cquery-project/cquery macos/cquery && cd macos/cquery
 git submodule update --init
 
 echo =============== Prepare cquery for install ===============
