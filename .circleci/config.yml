@@ -42,7 +42,16 @@ jobs:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
       - run: mkdir -p /tmp/artifacts
+      - restore_cache:
+          key: v0-editor-cache
       - run: ./macos/trigger_editor.sh
+      - save_cache:
+          key: v0-editor-cache
+          paths:
+            - atom/electron
+            - atom/apm/node_modules
+            - atom/script/node_modules
+            - atom/node_modules
       - run: ./macos/prep_cquery.sh
       - run: ./macos/build_editor_pkg.sh
       - store_artifacts:
