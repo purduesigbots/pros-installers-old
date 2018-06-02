@@ -21,13 +21,13 @@
 	<choice id="edu.purdue.cs.pros.pros-cli" enabled="false" title="PROS CLI" description="The PROS Command Line Interface (CLI) is the tool that handles PROS project management as well as flashing to the microcontroller.">
 		<pkg-ref id="edu.purdue.cs.pros.pros-cli"/>
 	</choice>
-	<pkg-ref id="edu.purdue.cs.pros.pros-cli" onConclusion="none">proscli.pkg</pkg-ref>
+	<pkg-ref id="edu.purdue.cs.pros.pros-cli" onConclusion="none">pros-cli.pkg</pkg-ref>
 	<choice id="edu.purdue.cs.pros.pros-toolchain" title="PROS Toolchain" description="The PROS toolchain is a set of publicly available binaries (gcc-arm-none-eabi) that facilitate cross-compiling program binaries for ARM-based microcontrollers. If you already have this installed, you should not install this component.">
 		<pkg-ref id="com.purduesigbots.pros-toolchain"/>
 	</choice>
-	<pkg-ref id="com.purduesigbots.pros-toolchain" onConclusion="none">prostoolchain.pkg</pkg-ref>
+	<pkg-ref id="com.purduesigbots.pros-toolchain" onConclusion="none">pros-toolchain.pkg</pkg-ref>
 	<choice id="edu.purdue.cs.pros.pros-editor" title="PROS Editor" description="The PROS Editor is a repackaged version of the Atom text editor, by GitHub. If you wish to use a different editor, you do not need to install this component.">
 		<pkg-ref id="edu.purdue.cs.pros.pros-editor"/>
 	</choice>
-	<pkg-ref id="edu.purdue.cs.pros.pros-editor" onConclusion="none">proseditor.pkg</pkg-ref>
+	<pkg-ref id="edu.purdue.cs.pros.pros-editor" onConclusion="none">pros-editor.pkg</pkg-ref>
 </installer-gui-script>
