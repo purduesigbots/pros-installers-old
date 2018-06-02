@@ -17,7 +17,6 @@
 #EDITOR_ARTIFACT_BASE_URL=$(curl $BASE_URL/$BUILD_NUMBER/artifacts?circle-token=$CLI_TOKEN | jq --raw-output --exit-status '.[0].url')
 #curl -o pros-editor-mac.zip $EDITOR_ARTIFACT_BASE_URL?circle-token=$CLI_TOKEN
 
-git clone git@github.com:purduesigbots/atom.git
 cd atom
 VERSION=$(git describe)
 cd -

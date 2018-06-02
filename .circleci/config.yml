@@ -42,6 +42,7 @@ jobs:
           at: /tmp/workspace
       - run: unzip /tmp/workspace/macos.zip -d .
       - run: mkdir -p /tmp/artifacts
+      - run: git clone git@github.com:purduesigbots/atom.git
       - restore_cache:
           key: v0-editor-cache
       - run: ./macos/trigger_editor.sh
