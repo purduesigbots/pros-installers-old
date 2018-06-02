@@ -22,7 +22,7 @@
 		<pkg-ref id="edu.purdue.cs.pros.pros-cli"/>
 	</choice>
 	<pkg-ref id="edu.purdue.cs.pros.pros-cli" onConclusion="none">proscli.pkg</pkg-ref>
-	<choice id="com.purduesigbots.pros-toolchain" title="PROS Toolchain" description="The PROS toolchain is a set of publicly available binaries (gcc-arm-none-eabi) that facilitate cross-compiling program binaries for ARM-based microcontrollers. If you already have this installed, you should not install this component.">
+	<choice id="edu.purdue.cs.pros.pros-toolchain" title="PROS Toolchain" description="The PROS toolchain is a set of publicly available binaries (gcc-arm-none-eabi) that facilitate cross-compiling program binaries for ARM-based microcontrollers. If you already have this installed, you should not install this component.">
 		<pkg-ref id="com.purduesigbots.pros-toolchain"/>
 	</choice>
 	<pkg-ref id="com.purduesigbots.pros-toolchain" onConclusion="none">prostoolchain.pkg</pkg-ref>
