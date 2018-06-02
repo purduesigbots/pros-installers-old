@@ -7,4 +7,4 @@ productbuild --resource macos/prospkg/resources \
   --distribution macos/prospkg/distribution.xml \
   pros-macOS.unsigned.pkg
 
-productsign --keychain $KEYCHAIN --sign $APPLE_CCN pros-macOS.unsigned.pkg pros-macOS.pkg
+productsign --sign $APPLE_CCN pros-macOS.unsigned.pkg pros-macOS.pkg
