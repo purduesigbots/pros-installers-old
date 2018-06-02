@@ -1,6 +1,6 @@
 #!/bin/bash
-echo debug: $APPLE_CCN
-productbuld --resource macos/prospkg/resources \
+
+productbuild --resource macos/prospkg/resources \
   --package-path /tmp/artifacts/proscli.pkg \
   --package-path /tmp/artifacts/pros-toolchain.pkg \
   --package-path /tmp/artifacts/pros-editor.pkg \
