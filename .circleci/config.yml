@@ -91,7 +91,7 @@ jobs:
           at: /tmp/artifacts
       - run: ./macos/build_installer.sh
       - store_artifacts:
-          path: pros-macOS.pkg
+          path: pros-macOS.unsigned.pkg
 
 workflows:
   version: 2
