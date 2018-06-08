@@ -93,6 +93,8 @@ jobs:
       - store_artifacts:
           path: pros-macOS.unsigned.pkg
       - store_artifacts:
+          path: pros-macOS.pkg
+      - store_artifacts:
           path: /tmp/artifacts
 
 workflows:
