@@ -12,9 +12,7 @@
 		<line choice="default">
 		<line choice="edu.purdue.cs.pros.pros-cli"/>
 		<line choice="com.purduesigbots.pros-toolchain"/>
-		<line choice="edu.purdue.cs.pros.pros-editor">
-			<line choice="com.github.cquery-project.cquery"/>
-		</line>
+		<line choice="edu.purdue.cs.pros.pros-editor"/>
 	</line>
 	</choices-outline>
 	<choice id="default" title="PROS Components" description="Select which PROS components you would like to install."/>
