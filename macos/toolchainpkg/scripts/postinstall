@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# link arm-none-eabi binaries to /usr/local/bin
+[ -d /usr/local/bin ] || mkdir -p /usr/local/bin
+mkdir -p /usr/local/bin/pros-toolchain # make it easier to uninstall
+ln -s /usr/local/lib/pros-toolchain/bin/* /usr/local/bin/pros-toolchain
+# add subdir to path
+[[ $(cat /etc/paths | grep pros) = '/usr/local/bin/pros-toolchain' ]] || echo '/usr/local/bin/pros-toolchain' >> /etc/paths

@@ -1,1 +1,116 @@
-version: 2
+version: 2.0
+
+jobs:
+  prepare_environment:
+    macos:
+      xcode: "9.0"
+    working_directory: ~/pros_build
+    steps:
+      - checkout
+      - run: mkdir -p /tmp/workspace
+      - run: zip -r /tmp/workspace/macos.zip macos
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - macos.zip
+    
+  build_cli:
+    macos:
+      xcode: "9.0"
+    working_directory: ~/pros_build
+    steps:
+      # - run: brew install jq
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: unzip /tmp/workspace/macos.zip -d .
+      - run: mkdir -p /tmp/artifacts
+      - run: ./macos/trigger_cli.sh
+      - store_artifacts:
+          path: pros-cli.pkg
+      - persist_to_workspace:
+          root: /tmp/artifacts
+          paths:
+            - pros-cli.pkg
+
+  build_editor:
+    macos:
+      xcode: "9.0"
+    working_directory: ~/pros_build
+    steps:
+      # - run: brew install jq
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: unzip /tmp/workspace/macos.zip -d .
+      - run: mkdir -p /tmp/artifacts
+      - run: git clone git@github.com:purduesigbots/atom.git
+      - restore_cache:
+          key: v0-editor-cache
+      - run: ./macos/trigger_editor.sh
+      - save_cache:
+          key: v0-editor-cache
+          paths:
+            - atom/electron
+            - atom/apm/node_modules
+            - atom/script/node_modules
+            - atom/node_modules
+      - run: ./macos/prep_cquery.sh
+      - run: ./macos/build_editor_pkg.sh
+      - store_artifacts:
+          path: pros-editor.pkg
+      - persist_to_workspace:
+          root: /tmp/artifacts
+          paths:
+            - pros-editor.pkg
+
+  build_toolchain:
+    macos:
+      xcode: "9.0"
+    working_directory: ~/pros_build
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: unzip /tmp/workspace/macos.zip -d .
+      - run: mkdir -p /tmp/artifacts
+      - run: ./macos/build_toolchain_pkg.sh
+      - store_artifacts:
+          path: pros-toolchain.pkg
+      - persist_to_workspace:
+          root: /tmp/artifacts
+          paths:
+            - pros-toolchain.pkg
+
+  build_installer:
+    macos:
+      xcode: "9.0"
+    working_directory: ~/pros_build
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: unzip /tmp/workspace/macos.zip -d .
+      - attach_workspace:
+          at: /tmp/artifacts
+      - run: ./macos/build_installer.sh
+      - store_artifacts:
+          path: pros-macOS.unsigned.pkg
+      - store_artifacts:
+          path: /tmp/artifacts
+
+workflows:
+  version: 2
+  pros_build:
+    jobs:
+      - prepare_environment
+      - build_cli:
+          requires:
+            - prepare_environment
+      - build_editor:
+          requires:
+            - prepare_environment
+      - build_toolchain:
+          requires:
+            - prepare_environment
+      - build_installer:
+          requires:
+            - build_cli
+            - build_editor
+            - build_toolchain
