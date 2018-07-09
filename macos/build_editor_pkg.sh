@@ -2,7 +2,9 @@
 
 echo =============== SETUP ENVIRONMENT ===============
 unzip atom/out/pros-editor-mac.zip
-cp -r macos/cquery PROS\ Editor.app/Contents/MacOS/
+mkdir -p PROS\ Editor.app/Contents/MacOS/cquery
+echo copying cquery files...
+cp -r macos/cquery/build/release/{bin,lib} PROS\ Editor.app/Contents/MacOS/cquery/
 mkdir -p macos/proseditorpkg/{ROOT,scripts}
 
 echo =============== CREATE SCRIPTS ===============
@@ -18,9 +20,8 @@ EOF
 
 cat << EOF > macos/proseditorpkg/scripts/postinstall
 #!/bin/sh
-cd /Applications/PROS\ Editor.app/Contents/MacOS/cquery
-./waf install --bundled-clang=6.0.0
-cd -
+# add cquery to directory sourced by PATH
+ln -s /Applications/PROS\ Editor.app/Contents/MacOS/cquery/bin/cquery /usr/local/bin
 EOF
 
 chmod +x macos/proseditorpkg/scripts/{preinstall,postinstall}
